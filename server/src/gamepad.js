@@ -101,8 +101,8 @@ module.exports = class GameController {
         if (this.fd) {
             var input_event = Struct()
                 .struct('time', Struct()
-                    .word32Sle('tv_sec')
-                    .word32Sle('tv_usec')
+                    .word64Sle('tv_sec')
+                    .word64Sle('tv_usec')
                 )
                 .word16Ule('type')
                 .word16Ule('code')
@@ -119,8 +119,8 @@ module.exports = class GameController {
 
             var input_event_end = Struct()
                 .struct('time', Struct()
-                    .word32Sle('tv_sec')
-                    .word32Sle('tv_usec')
+                    .word64Sle('tv_sec')
+                    .word64Sle('tv_usec')
                 )
                 .word16Ule('type')
                 .word16Ule('code')

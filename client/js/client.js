@@ -90,49 +90,6 @@ $(window).load(function() {
         }
     };
 
-    sendEventToServer = function(event) {
-        console.log(event);
-        switch (event) {
-            case "left":
-                sendEvent(0x03, 0x00, 0);
-                sendEvent(0x03, 0x01, 127);
-                break;
-            case "left:up":
-                sendEvent(0x03, 0x00, 0);
-                sendEvent(0x03, 0x01, 0);
-                break;
-            case "left:down":
-                sendEvent(0x03, 0x00, 0);
-                sendEvent(0x03, 0x01, 255);
-                break;
-            case "right":
-                sendEvent(0x03, 0x00, 255);
-                sendEvent(0x03, 0x01, 127);
-                break;
-            case "right:up":
-                sendEvent(0x03, 0x00, 255);
-                sendEvent(0x03, 0x01, 0);
-                break;
-            case "right:down":
-                sendEvent(0x03, 0x00, 255);
-                sendEvent(0x03, 0x01, 255);
-                break;
-            case "up":
-                sendEvent(0x03, 0x00, 127);
-                sendEvent(0x03, 0x01, 0);
-                break;
-            case "down":
-                sendEvent(0x03, 0x00, 127);
-                sendEvent(0x03, 0x01, 255);
-                break;
-            default:
-                sendEvent(0x03, 0x00, 127);
-                sendEvent(0x03, 0x01, 127);
-        }
-    };
-
-    var prevEvent;
-
     // Create Joystick
     nipplejs.create({
             zone: document.querySelector('.joystick'),
@@ -142,23 +99,14 @@ $(window).load(function() {
                 left: '50%',
                 top: '50%'
             },
-            multitouch: true
         })
         // start end
         .on('end', function(evt, data) {
-            // set joystick to default position
-            sendEventToServer('end');
-            prevEvent = evt.type;
-            // dir:up plain:up dir:left plain:left dir:down plain:down dir:right plain:right || move
+            sendEvent(0x03, 0x00, 127);
+            sendEvent(0x03, 0x01, 127);
         }).on('move', function(evt, data) {
-            var event = convertDegreeToEvent(data.angle.degree);
-            if (event !== prevEvent) {
-                sendEventToServer(event);
-                prevEvent = event;
-            }
-        })
-        .on('pressure', function(evt, data) {
-            console.log('pressure');
+            sendEvent(0x03, 0x00, Math.cos(data.angle.radian) * 127 + 128);
+            sendEvent(0x03, 0x01, Math.sin(data.angle.radian) * 127 + 128);
         });
 
     // Reload page when gamepad is disconnected
