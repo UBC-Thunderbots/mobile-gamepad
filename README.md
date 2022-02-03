@@ -1,5 +1,9 @@
 # Mobile Gamepad
 
+### Thunderbots changes
+* The library by default is for an RPI, so we have to update the events to be 64 bits [already tracked here](https://github.com/sbidolach/mobile-gamepad/issues/5)
+* The original joystick had a finite number of states (up, down, left, right, up-left, etc..) but we would like an analog encoder.
+
 Mobile Universal Gamepad for RetroPie (http://mobilegamepad.net/)
 
 ![MobilaGamepad](/other/resources/schema_mobilegamepad.png)
