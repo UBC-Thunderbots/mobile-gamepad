@@ -6,6 +6,16 @@
 
 Both these changes are tracked in this commit: [e3b983f88810d9ac5624d4c8eff1b04d0cc4f62e](https://github.com/UBC-Thunderbots/mobile-gamepad/commit/e3b983f88810d9ac5624d4c8eff1b04d0cc4f62e)
 
+We also changed the server.js to index.js so that we can use `nar create --executable`
+
+Instructions on how to create a new binary:
+
+~~~
+npm install
+# make your changes
+nar create --executable
+~~~
+
 Mobile Universal Gamepad for RetroPie (http://mobilegamepad.net/)
 
 ![MobilaGamepad](/other/resources/schema_mobilegamepad.png)

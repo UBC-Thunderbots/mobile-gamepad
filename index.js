@@ -3,7 +3,7 @@ var websocket = require('socket.io');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var gamehub = require('./src/gamehub');
+var gamehub = require('./server/src/gamehub');
 
 app.use(express.static('./dist/public'));
 
@@ -48,8 +48,8 @@ io.on('connection', function(socket) {
 });
 
 // Start the server on port provided by grunt-express-server
-http.listen(process.env.PORT, function() {
-    console.log('Express server listening on port ' + process.env.PORT);
+http.listen(8888, function() {
+    console.log('Express server listening on port ' + 8888);
 });
 
 module.exports = app;

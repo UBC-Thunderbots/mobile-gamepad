@@ -15,11 +15,12 @@
     "uinput": "git+https://github.com/timstableford/node-uinput.git"
   },
   "devDependencies": {
-    "grunt": "^1.3.0",
+    "grunt": "^0.4.2",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-express-server": "^0.5.4",
+    "grunt-nar": "^0.4.0",
     "grunt-open": "^0.2.4"
   }
 }
