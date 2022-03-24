@@ -59,7 +59,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           port: config.port,
-          script: 'server/server.js',
+          script: 'index.js',
           background: true
         }
       }
