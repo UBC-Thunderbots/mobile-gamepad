@@ -64,17 +64,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    nar: {
-        create: {
-            src: 'package.json',
-            dest: 'tmp/'
-        },
-        createExec: {
-            options: { executable: true },
-            src: 'package.json',
-            dest: 'tmp/'
-        }
-    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -82,14 +71,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-open');
-  grunt.loadNpmTasks('grunt-nar');
 
   grunt.registerTask('default', [
     'clean', 'copy'
   ]);
 
   grunt.registerTask('start', [
-    'default', 'express', 'nar', 'watch'
+    'default', 'express', 'watch'
   ]);
 
   grunt.registerTask('development', [
