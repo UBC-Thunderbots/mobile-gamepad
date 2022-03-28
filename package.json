@@ -7,6 +7,7 @@
     "node": ">=12.0.0"
   },
   "dependencies": {
+    "bundle-deps": "^1.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "ioctl": "git+https://github.com/mk-pmb/node-ioctl.git",
@@ -23,5 +24,15 @@
     "grunt-express-server": "^0.5.4",
     "grunt-nar": "^0.4.0",
     "grunt-open": "^0.2.4"
-  }
+  },
+  "bundledDependencies": [
+    "bundle-deps",
+    "ejs",
+    "express",
+    "ioctl",
+    "nipplejs",
+    "socket.io",
+    "struct",
+    "uinput"
+  ]
 }
